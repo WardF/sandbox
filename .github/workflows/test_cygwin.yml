@@ -16,10 +16,10 @@ env:
 jobs:
 
     test-cygwin:
-    runs-on: windows-latest
-    defaults:
-      run:
-        shell: C:/cygwin/bin/bash.exe -eo pipefail -o igncr "{0}"
+      runs-on: windows-latest
+      defaults:
+        run:
+          shell: C:/cygwin/bin/bash.exe -eo pipefail -o igncr "{0}"
 
 
     name: Cygwin Testing Sandbox
