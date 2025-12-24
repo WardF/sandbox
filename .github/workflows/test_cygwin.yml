@@ -49,7 +49,7 @@ jobs:
             echo ""
          
 
-        -name: Explore Environment (pwsh)
+        - name: Explore Environment (pwsh)
           run: ls C:\
 
         - name: Print Output from Cygwin Install (pwsh)
