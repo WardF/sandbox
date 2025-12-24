@@ -53,9 +53,7 @@ jobs:
           shell: pwsh
           run: ls C:\
 
-        - name: Print Output from Cygwin Install (pwsh)
+        - name: Install HDF5 1.14.6-1
           shell: pwsh
           run: |
-            SETUP_WIN='${{ steps.cygwin-install.outputs.setup }}'
-
-            echo "Setup: $SETUP_WIN"
+            C:\setup.exe -q -P libhdf5-devel=1.14.6-1
