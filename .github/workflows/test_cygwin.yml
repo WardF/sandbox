@@ -30,6 +30,7 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Run Cygwin Install
+          id: cygwin-install
           uses: cygwin/cygwin-install-action@v4
           with:
             platform: x86_64
@@ -37,6 +38,14 @@ jobs:
             packages: >-
               git automake libtool autoconf2.5 make unzip zip
 
+        - name: Configure Git
+          run: |
+            git config --global 
+
         - name: Explore Environment
           run: |
             env && ls && pwd
+
+        - name: Print Output from Cygwin Install
+          run: |
+            echo "Setup: ${{ steps.cygwin-install.outputs.setup }}"
