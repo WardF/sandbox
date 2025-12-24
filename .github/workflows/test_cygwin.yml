@@ -56,4 +56,6 @@ jobs:
         - name: Print Output from Cygwin Install (pwsh)
           shell: pwsh
           run: |
-            echo "Setup: ${{ steps.cygwin-install.outputs.setup }}"
+            SETUP_WIN='${{ steps.cygwin-install.outputs.setup }}'
+
+            echo "Setup: $SETUP_WIN"
