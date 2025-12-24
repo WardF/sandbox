@@ -1,0 +1,7 @@
+name: Test Cygwin-based tests
+
+on: [ workflow_dispatch] 
+
+concurrency:  
+  group: ${{ github.workflow}}-${{ github.head_ref }}  
+  cancel-in-progress: true
