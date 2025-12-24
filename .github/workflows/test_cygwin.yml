@@ -45,6 +45,8 @@ jobs:
         - name: Explore Environment
           run: |
             env && ls && pwd
+            echo ""
+            ls C:\
 
         - name: Print Output from Cygwin Install
           run: |
