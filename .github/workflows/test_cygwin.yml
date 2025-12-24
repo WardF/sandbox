@@ -22,21 +22,21 @@ jobs:
           shell: C:/cygwin/bin/bash.exe -eo pipefail -o igncr "{0}"
 
 
-    name: Cygwin Testing Sandbox
+      name: Cygwin Testing Sandbox
 
-    steps:
+      steps:
 
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+        - name: Checkout Repo
+          uses: actions/checkout@v4
 
-      - name: Run Cygwin Install
-        uses: cygwin/cygwin-install-action@v4
-        with:
-          platform: x86_64
-          install-dir: 'C:\cygwin'
-          packages: >-
-            git automake libtool autoconf2.5 make unzip zip
+        - name: Run Cygwin Install
+          uses: cygwin/cygwin-install-action@v4
+          with:
+            platform: x86_64
+            install-dir: 'C:\cygwin'
+            packages: >-
+              git automake libtool autoconf2.5 make unzip zip
 
-      - name: Explore Environment
-        run: |
-          env && ls && pwd
+        - name: Explore Environment
+          run: |
+            env && ls && pwd
