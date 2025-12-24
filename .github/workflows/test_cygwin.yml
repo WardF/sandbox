@@ -52,6 +52,7 @@ jobs:
         -name: Explore Environment (pwsh)
           run: ls C:\
 
-        - name: Print Output from Cygwin Install
+        - name: Print Output from Cygwin Install (pwsh)
+          shell: pwsh
           run: |
             echo "Setup: ${{ steps.cygwin-install.outputs.setup }}"
