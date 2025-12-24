@@ -1,7 +1,42 @@
 name: Test Cygwin-based tests
 
-on: [ workflow_dispatch] 
+on: [ workflow_dispatch ] 
 
 concurrency:  
   group: ${{ github.workflow}}-${{ github.head_ref }}  
   cancel-in-progress: true
+
+env:
+  SHELLOPTS: igncr
+  CHERE_INVOKING: 1
+  CYGWIN_NOWINPATH: 1
+  REMOTETESTDOWN: ${{ vars.REMOTETESTDOWN }}
+
+
+jobs:
+
+    test-cygwin:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: C:/cygwin/bin/bash.exe -eo pipefail -o igncr "{0}"
+
+
+    name: Cygwin Testing Sandbox
+
+    steps:
+
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Run Cygwin Install
+        uses: cygwin/cygwin-install-action@v4
+        with:
+          platform: x86_64
+          install-dir: 'C:\cygwin'
+          packages: >-
+            git automake libtool autoconf2.5 make unzip zip
+
+      - name: Explore Environment
+        run: |
+          env && ls && pwd
