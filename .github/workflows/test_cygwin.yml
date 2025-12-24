@@ -50,6 +50,7 @@ jobs:
          
 
         - name: Explore Environment (pwsh)
+          shell: pwsh
           run: ls C:\
 
         - name: Print Output from Cygwin Install (pwsh)
