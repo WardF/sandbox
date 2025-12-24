@@ -39,14 +39,18 @@ jobs:
               git automake libtool autoconf2.5 make unzip zip
 
         - name: Configure Git
+          shell: pwsh
           run: |
             git config --global core.autocrlf input
 
-        - name: Explore Environment
+        - name: Explore Environment (bash)
           run: |
             env && ls && pwd
             echo ""
-            ls C:\
+         
+
+        -name: Explore Environment (pwsh)
+          run: ls C:\
 
         - name: Print Output from Cygwin Install
           run: |
